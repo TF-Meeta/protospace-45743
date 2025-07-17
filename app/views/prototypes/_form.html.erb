@@ -1,0 +1,35 @@
+<%= form_with model: @prototype, local: true do |f|%>
+  <% if @prototype.errors.any?%>
+    <div class="error.messages">
+      <ul>
+        <%= @prototype.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <%end%>
+
+  <div class="field">
+    <%= f.label :title, "プロトタイプの名称" %>
+    <%= f.text_field :title, class: :form__input %>
+  </div>
+
+  <div class="field">
+    <%= f.label :catch_copy, "キャッチコピー" %>
+    <%= f.text_field :catch_copy, class: :form__input %>
+  </div>
+
+  <div class="field">
+    <%= f.label :concept, "コンセプト" %>
+    <%= f.text_area :concept, class: :form__textarea %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "プロトタイプの画像" %>
+    <%= f.file_field :image, class: :form__file %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn %>
+  </div>
+<% end %>
