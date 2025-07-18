@@ -15,7 +15,7 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
-      redirect_to prototype_path(@prototype), notice: "投稿が完了しました"
+      redirect_to root_path, notice: "投稿が完了しました"
     else
       render :new
     end
